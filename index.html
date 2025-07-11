@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Love Journey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Segoe+UI">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #000000;
+      color: #ffffff;
+      overflow: hidden;
+    }
+    canvas#hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      pointer-events: none;
+      width: 100vw;
+      height: 100vh;
+    }
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .slide.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 2;
+    }
+    .slide h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5em;
+      color: #d63384;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .slide p {
+      font-size: 1.2em;
+      text-align: center;
+    }
+    .gallery-container, .cards, .video-wrapper {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .gallery-container img, .cards .card {
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .gallery-container img {
+      width: 180px;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card {
+      background: rgb(209, 52, 170);
+      padding: 20px;
+      width: 200px;
+      height: 100px;
+      font-size: 1.1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    iframe {
+      border-radius: 12px;
+      width: 90vw;
+      max-width: 560px;
+      height: 315px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="hearts"></canvas>
+
+  <div class="slide active">
+    <h1>Welcome to Our Love Story</h1>
+    <p>From our first smile to forever 💖</p>
+  </div>
+  <div class="slide">
+    <h1>Our Memories</h1>
+    <div class="gallery-container">
+    <img src="https://scontent.fphs2-1.fna.fbcdn.net/v/t1.15752-9/516469260_1229820695089614_115427766161980687_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=102&ccb=1-7&_nc_sid=0024fc&_nc_ohc=10NuctOmrtYQ7kNvwGpWIsm&_nc_oc=AdlbSP_uC8ICkBTU4L9DuDwdDeDVyuMTi8u28vSWrrHkXwjqXB1_y88_tS5KT1MG0nbXuDgM5EL7krDNjttuRr7G&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fphs2-1.fna&oh=03_Q7cD2wGgtw6tJDAIngefw7-ngPdnfaOb6Zw6a4MG-aypUNTJqQ&oe=68981F43" alt="">
+    <img src="https://scontent.fphs2-1.fna.fbcdn.net/v/t1.15752-9/517381069_1267239698474450_412738534665538915_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=0024fc&_nc_ohc=FuJCUnFFmw8Q7kNvwFZPmpE&_nc_oc=AdlpotKPIQncOYycz9klDwGLODHY2xUxilFU8Md679efQZcvpekOAk4eVIqiBghsybjg5mYnF_poU76tzI11OXnt&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fphs2-1.fna&oh=03_Q7cD2wHto21beLP8i4UDgglyOk9QCoMnBhtfY-lQOnshcd64rg&oe=689817BA" alt="">
+    <img src="https://scontent.fphs2-1.fna.fbcdn.net/v/t1.15752-9/418467698_1638696353328055_1915921922546507635_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_ohc=91KGWdV_xOIQ7kNvwE6kUGx&_nc_oc=AdmD59oslYQq5JvkTjAmYW_9bkI5W3Dkjy6fmKC4Hoq_7_RcEqtR1wm0tipnZZ8ErV1To6FeU_pjqjeU9mK1M1Hs&_nc_zt=23&_nc_ht=scontent.fphs2-1.fna&oh=03_Q7cD2wHMMpBK8pPHr_ghGf8ea4eQg0ffx3TMXh6nw64MwDitYg&oe=6897FFE4" alt="">
+    </div>    </div>
+  </div>
+  <div class="slide">
+    <h1>Our Timeline</h1>
+    <p>First Chat – We started talking 🌟</p>
+    <p>First Date – Our hearts met ❤️</p>
+    <p>First Trip – Memories forever 🗺️</p>
+  </div>
+  <div class="slide">
+    <h1>Love Notes</h1>
+    <div class="cards">
+      <div class="card">I’m so lucky to have you.</div>
+      <div class="card">You’re my forever person.</div>
+      <div class="card">Every day with you is magic.</div>
+    </div>
+  </div>
+ 
+  <div class="slide">
+    <h1>Why I Love You</h1>
+    <p>Your smile, your heart, your soul – everything about you is home to me.</p>
+  </div>
+  <div class="slide">
+    <h1>Forever Together</h1>
+    <p>We may not have it all together, but together we have it all 💞</p>
+  </div>
+
+
+  <audio id="bgMusic" preload="auto" loop>
+    <source src="love-romantic-hopeful-music-333017.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+
+
+  <script>
+    const canvas = document.getElementById("hearts");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    const hearts = [];
+    for (let i = 0; i < 80; i++) {
+      hearts.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 20 + 8,
+        speed: Math.random() * 1.5 + 0.5,
+        opacity: Math.random() * 0.6 + 0.4,
+      });
+    }
+
+    function drawHeart(x, y, size, opacity) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.scale(size / 100, size / 100);
+      ctx.beginPath();
+      ctx.moveTo(75, 40);
+      ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
+      ctx.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+      ctx.bezierCurveTo(20, 80, 40, 102, 75, 120);
+      ctx.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+      ctx.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+      ctx.bezierCurveTo(85, 25, 75, 37, 75, 40);
+      ctx.closePath();
+      ctx.fillStyle = `rgba(255,105,180,${opacity})`;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let h of hearts) {
+        drawHeart(h.x, h.y, h.size, h.opacity);
+        h.y += h.speed;
+        if (h.y > canvas.height) {
+          h.y = -50;
+          h.x = Math.random() * canvas.width;
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    const slides = document.querySelectorAll('.slide');
+    const bgMusic = document.getElementById('bgMusic');
+    const videoFrame = document.getElementById('videoFrame');
+
+    let currentSlide = 0;
+    let hasStarted = false;
+
+    const showSlide = (index) => {
+      slides.forEach((s, i) => s.classList.remove('active'));
+      slides[index].classList.add('active');
+    };
+
+    document.body.addEventListener('click', () => {
+      if (!hasStarted) {
+        bgMusic.play().catch(e => console.log("Autoplay blocked until user interaction"));
+        hasStarted = true;
+      }
+
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+
+      // Pause music if video slide, else resume
+      if (slides[currentSlide].querySelector('iframe')) {
+        bgMusic.pause();
+      } else {
+        bgMusic.play().catch(() => {});
+      }
+    });
+  </script>
+</body>
+</html>
